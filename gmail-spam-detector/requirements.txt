@@ -1,0 +1,25 @@
+# Requirements for AI-Powered Gmail Spam & Phishing Detection System
+# Core Gmail API and Authentication
+google-auth-oauthlib>=1.2.0
+google-auth-httplib2>=0.2.0
+google-api-python-client>=2.108.0
+
+# HTML and Text Processing
+beautifulsoup4>=4.12.2
+lxml>=4.9.3
+
+# Natural Language Processing
+nltk>=3.8.1
+
+# URL and Domain Analysis
+tldextract>=5.1.1
+validators>=0.22.0
+
+# Environment and Configuration
+python-dotenv>=1.0.0
+
+# Utilities
+colorama>=0.4.6
+
+# Web Dashboard
+Flask>=3.0.0
