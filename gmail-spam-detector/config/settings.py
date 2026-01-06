@@ -72,5 +72,36 @@ class Settings:
         'google.com', 'github.com', 'microsoft.com', 'amazon.com'
     ]
 
+    # ============================================
+    # Machine Learning Configuration (NEW)
+    # ============================================
+
+    # Enable/disable ML classifier
+    ENABLE_ML_CLASSIFIER: bool = os.getenv('ENABLE_ML_CLASSIFIER', 'True').lower() == 'true'
+
+    # Path to save/load trained ML model
+    ML_MODEL_PATH: str = os.getenv('ML_MODEL_PATH', 'models/spam_classifier.joblib')
+
+    # ML prediction confidence threshold (0.0-1.0)
+    # Used to determine if ML prediction should be trusted
+    ML_CONFIDENCE_THRESHOLD: float = float(os.getenv('ML_CONFIDENCE_THRESHOLD', '0.85'))
+
+    # Weight of ML score in hybrid classification (0.0-1.0)
+    # Final Score = (ML_Score × ML_WEIGHT) + (Threat_Score × (1-ML_WEIGHT))
+    # Higher value = more weight on ML model
+    ML_WEIGHT: float = float(os.getenv('ML_WEIGHT', '0.6'))
+
+    # Automatically retrain model on startup if new labeled data exists
+    RETRAIN_ON_STARTUP: bool = os.getenv('RETRAIN_ON_STARTUP', 'False').lower() == 'true'
+
+    # Collect user feedback to improve ML model over time
+    COLLECT_FEEDBACK: bool = os.getenv('COLLECT_FEEDBACK', 'True').lower() == 'true'
+
+    # Minimum training samples required before training ML model
+    MIN_TRAINING_SAMPLES: int = int(os.getenv('MIN_TRAINING_SAMPLES', '50'))
+
+    # Enable NLP text processing (tokenization, stemming, etc.)
+    ENABLE_NLP_FEATURES: bool = os.getenv('ENABLE_NLP_FEATURES', 'True').lower() == 'true'
+
 # Create a singleton instance
 settings = Settings()
